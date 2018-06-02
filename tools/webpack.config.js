@@ -1,6 +1,7 @@
 const path = require('path');
 const loaders = require('./loaders');
 const plugins = require('./plugins');
+const optimization = require('./optimizations');
 
 const buildConfig = require('../config/build_config');
 
@@ -20,6 +21,7 @@ module.exports = (env) => {
       rules: loaders(isProd)
     },
     plugins: plugins(isProd),
+    optimization: optimization,
     mode: isProd? 'production': 'development',
     devtool: isProd? 'hidden-source-map': 'source-map'
   };

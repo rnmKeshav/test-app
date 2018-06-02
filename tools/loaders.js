@@ -9,8 +9,6 @@ let babelLoader = () => ({
   }]
 });
 
-let cssLoader = () => 'css-loader';
-
 let postCssLoader = () => ({
   loader: 'postcss-loader',
   options: {
@@ -23,9 +21,11 @@ let postCssLoader = () => ({
   }
 });
 
-let sassLoader = () => 'sass-loader';
+let sassLoader = () => 'sass-loader'; // Has dependancy on node-sass. 
+let cssLoader = () => 'css-loader';     //The css-loader interprets @import and url() like import/require() and will resolve them
+let styleLoader = () => 'style-loader'; // Adds CSS to the DOM by injecting a <style> tag in (compiled)index file.
 
-let MiniCssExtractPluginLoader = () => MiniCssExtractPlugin.loader;
+let MiniCssExtractPluginLoader = () => MiniCssExtractPlugin.loader; // This plugin extract CSS into separate files.
 
 let urlLoader = () => ({
   test: /\.(png|jpg|gif|svg)$/,
@@ -42,7 +42,12 @@ let urlLoader = () => ({
 
 let extractCssPluginLoader = (isProd) => ({
   test: /\.s?css$/,
-  use: parseArr([MiniCssExtractPluginLoader, cssLoader, postCssLoader, sassLoader])(isProd)
+  use: parseArr([
+    isProd?MiniCssExtractPluginLoader: styleLoader, 
+    cssLoader, 
+    postCssLoader, 
+    sassLoader
+  ])(isProd)
 });
 
 module.exports = parseArr([
