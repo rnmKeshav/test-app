@@ -1,9 +1,8 @@
 const path = require('path');
 const loaders = require('./loaders');
+const plugins = require('./plugins');
 
-const entryPaths = {
-  app: path.resolve(process.cwd(), 'src/client.js')
-};
+const buildConfig = require('../config/build_config');
 
 module.exports = (env) => {
   let isProd = env && env.isProduction;
@@ -12,14 +11,15 @@ module.exports = (env) => {
     resolve: {
       extensions: ['*','.js', '.jsx', '.json']
     },
-    entry: entryPaths,
+    entry: buildConfig.entryPaths,
     output: {
-      path: path.resolve(process.cwd(), 'build'),
-      filename: path.join('javascripts', isProd? '[name].[chunkhash:12].js': '[name].js')
+      path: buildConfig.output.dirname,
+      filename: path.join(buildConfig.output.javascriptFolderName, isProd? '[name].[chunkhash:12].js': '[name].js')
     },
     module: {
       rules: loaders(isProd)
     },
+    plugins: plugins(isProd),
     mode: isProd? 'production': 'development',
     devtool: isProd? 'hidden-source-map': 'source-map'
   };
