@@ -1,0 +1,47 @@
+$default-prefixes: webkit moz ms o;
+
+@mixin prefix($property, $value, $prefixes: $default-prefixes) {
+  // Usage: @include prefix(property, value)
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+  #{$property}: #{$value};
+}
+
+// Generic transform
+@mixin transform($transforms) {
+  @include prefix("transform", $transforms);
+}
+
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+
+@mixin responsive-util-varied-props($classPrefix, $propertyPrefix, $value, $properties...) {
+  @for $i from 1 through length($properties) {
+    $propName: nth($properties, $i);
+    $property: #{$propertyPrefix}-#{$propName};
+    $className: #{$classPrefix}--#{$propName};
+
+    .#{$className} {
+      #{$property}: #{$value};
+
+      &__desktop {
+        @media only screen and (min-width: 786px) {
+          #{$property}: #{$value};
+        } 
+      }  
+
+      &__mobile {
+        @media only screen and (max-width: 786px) {
+          #{$property}: #{$value};
+        }
+      }
+    }
+
+    .#{$classPrefix}--all {
+      #{$propertyPrefix}: #{$value};
+    }
+  }  
+}

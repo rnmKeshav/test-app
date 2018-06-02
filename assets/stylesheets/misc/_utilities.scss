@@ -1,0 +1,288 @@
+.v {
+  &-middle{
+    vertical-align: middle;
+  }
+
+  &-bottom{
+    vertical-align: bottom;
+  }
+
+  &-top {
+    vertical-align: top;
+  }
+
+  &-text-top{
+    vertical-align: text-top;
+  }
+
+  &-text-bottom{
+    vertical-align: text-bottom;
+  }
+}
+
+.is {
+  &-desktop {
+    @media screen and (max-width: 1023px) {
+      display: none !important;
+    }
+
+    &__small {
+      @media screen and (max-width: 786px) {
+        display: none !important;
+      }
+    }
+  }
+
+  &-mobile {
+    @media screen and (min-width: 1024px) {
+      display: none !important;
+    }
+  }
+
+  &-hidden {
+    display: none !important;
+  }
+}
+
+.pos {
+  position: relative;
+
+  &-abs {
+    position: absolute;
+  }
+
+  &-l {
+    &-t {
+      @extend .pos;
+      top: 0px;
+      left: 0px;
+    }
+
+    &-m {
+      @extend .pos;
+      top: 50%;
+      left: 0px;
+      @include transform(translateY(-50%))
+    }
+
+    &-b {
+      @extend .pos;
+      bottom: 0px;
+      left: 0px;
+    }
+  }
+
+  &-r {
+    &-t {
+      @extend .pos;
+      top: 0px;
+      right: 0px;
+    }
+
+    &-m {
+      @extend .pos;
+      top: 50%;
+      right: 0px;
+      @include transform(translateY(-50%))
+    }
+
+    &-b {
+      @extend .pos;
+      bottom: 0px;
+      right: 0px;
+    }
+  }
+
+  &-m {
+    &-t {
+      @extend .pos;
+      top: 0px;
+      left: 50%;
+      @include transform(translateX(-50%))
+    }
+
+    &-b {
+      @extend .pos;
+      bottom: 0px;
+      left: 50%;
+      @include transform(translateX(-50%))
+    }
+
+    &-m {
+      @extend .pos;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-50%))
+    }
+  }
+
+}
+
+.u {
+  &-t {
+    &-center {
+      text-align: center;
+    }
+
+    &-right {
+      text-align: right;
+    }
+
+    &-left {
+      text-align: left;
+    }
+
+    &-ellipsis {
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &-success {
+      color: $green_1;
+    }
+
+    &-red-1 {
+      color: $red_1;
+    }
+
+    &-decoration {
+      &--none {
+        text-decoration:none;
+      }
+    }
+
+    &-link {
+      font-size: $font_13;
+      color: $blue_1;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-d {
+    &-block {
+      display: block;
+    }
+
+    &-inlineblock {
+      display:inline-block;
+    }
+
+    &-inline {
+      display: inline;
+    }
+  }
+
+  &-f {
+    &-right {
+      float: right;
+    }
+
+    &-left {
+      float: left;
+    }
+  }
+
+  &-font {
+    &-13 {
+      font-size: $font_13;
+    }
+    
+    &-weight{
+      &-bold {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &-hide {
+    display: none;
+
+    &__desktop {
+      @media only screen and (min-width: 786px) {
+        display: none;
+      }
+    }
+
+    &__mobile {
+      @media only screen and (max-width: 786px) {
+        display: none;
+      }
+    }
+  }
+
+  &-border {
+    border: 1px solid $grey_1;
+
+    &-bottom {
+      border-bottom: 1px solid $grey_1;
+    }
+
+    &-top {
+      border-top: 1px solid $grey_1;
+
+      &__mobile {
+        @media only screen and (max-width: 786px) {
+          border-top: 1px solid $grey_1;
+        }
+      }
+    }
+
+    &-right {
+      border-right: 1px solid $grey_1;
+
+      &--none {
+        border-right: none;
+      }
+    }
+
+    &-left {
+      border-left: 1px solid $grey_1;
+    }
+
+    &--round {
+      @extend .u-border;
+      border-radius: 2px;
+    }
+
+    &-outer {
+      border: 1px solid $grey_2;
+    }
+  }
+
+  &-clearfix {
+    /**
+     * For IE 6/7 only
+     * Include this rule to trigger hasLayout and contain floats.
+     */
+    *zoom: 1;
+
+    &:after {
+      clear: both;
+    }
+
+    &:before,
+    &:after {
+      content: " "; /* 1 */
+      display: table; /* 2 */
+    }
+  }
+
+  &-v-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &-pointer {
+    cursor: pointer;
+  }
+}
+
+@include responsive-util-varied-props('u-padding-3', 'padding', $padding_3, 'left', 'right', 'top', 'bottom');
+
+@include responsive-util-varied-props('u-margin-3', 'margin', $margin_3, 'left', 'right', 'top', 'bottom');
