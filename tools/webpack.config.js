@@ -23,6 +23,12 @@ module.exports = (env) => {
     plugins: plugins(isProd),
     optimization: optimization,
     mode: isProd? 'production': 'development',
-    devtool: isProd? 'hidden-source-map': 'source-map'
+    devtool: isProd? 'hidden-source-map': 'source-map',
+    devServer: {
+      contentBase: path.resolve(buildConfig.output.dirname),
+      compress: true,
+      historyApiFallback: true,
+      port: 3001
+    }
   };
 };
