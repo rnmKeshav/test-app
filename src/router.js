@@ -1,13 +1,20 @@
 import React from 'react';
 import UniversalRouter from 'universal-router';
 
+import getUserData from './actions/get_user_data';
+
 import Home from './components/home';
 
 const routes = [
   {
     path: '/home',
-    action: () => {
-      return (<Home />);
+    action: (context) => {
+      let {dispatch} = context.store;
+
+      return dispatch(getUserData())
+        .then(() => {
+          return (<Home />);
+        });
     }
   }
 ];
