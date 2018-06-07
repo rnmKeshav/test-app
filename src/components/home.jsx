@@ -1,9 +1,11 @@
 import React from 'react';
 
+import UserCard from '../containers/user_card';
+
 const Home = () => {
   return (
     <div>
-      This is home page
+      <UserCard />
     </div>
   );
 }

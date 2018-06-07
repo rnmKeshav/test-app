@@ -34,7 +34,8 @@ const onClientNavigation = (store, appRendered) => (pathname) => {
 
         appRendered(result);
       }, (err) => {
-        throw new Error(err);
+
+        return err;
       });
 };
 

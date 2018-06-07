@@ -9,7 +9,12 @@ const getUserData = (payload) => (dispatch, getState) => {
 
     api.get(requestParams)
       .then((data) => {
-        console.log('data');
+        dispatch({
+          type: actionTypes.USER_DATA_FETCH_SUCCESS,
+          payload: {data}
+        });
+
+        resolve(data);
       }, (err) => {
         dispatch({
           type: actionTypes.USER_DATA_FETCH_FAILURE,
