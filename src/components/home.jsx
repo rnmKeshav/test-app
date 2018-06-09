@@ -1,7 +1,7 @@
 import React from "react";
 
 import UserCard from "../containers/user_card";
-import UserHandle from "../components/user_handle";
+import UserHandle from "../containers/user_handle";
 
 const Home = () => {
   return (

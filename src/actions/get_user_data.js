@@ -1,28 +1,30 @@
-import api from '../helpers/apiUtil';
-import {actionTypes} from '../helpers/constants';
+import api from "../helpers/apiUtil";
+import { actionTypes } from "../helpers/constants";
 
-const getUserData = (payload) => (dispatch, getState) => {
+const getUserData = payload => (dispatch, getState) => {
   return new Promise((resolve, reject) => {
     let requestParams = {
-      endpoint: '/get_user_data'
+      endpoint: "/get_user_data"
     };
 
-    api.get(requestParams)
-      .then((data) => {
+    api.get(requestParams).then(
+      data => {
         dispatch({
-          type: actionTypes.USER_DATA_FETCH_SUCCESS,
-          payload: {data}
+          type: actionTypes["LOGGEDIN_USER/DATA_FETCH_SUCCESS"],
+          payload: { data }
         });
 
         resolve(data);
-      }, (err) => {
+      },
+      err => {
         dispatch({
-          type: actionTypes.USER_DATA_FETCH_FAILURE,
-          payload: {message: err.message}
+          type: actionTypes["LOGGEDIN_USER/DATA_FETCH_FAILURE"],
+          payload: { message: err.message }
         });
 
         reject(err);
-      });
+      }
+    );
   });
 };
 

@@ -1,3 +1,22 @@
-.user-handle {
+.background-blurred {
   background-image: url("assets/images/colorful-nature-wallpaper.jpg");
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  filter: blur(10px);
+  z-index: -10;
+}
+
+.user-handle {
+  @extend .u-v-center;
+  width: 100%;
+  padding: 24px;
+  background-color: rgba(191, 20, 114, 0.4);
+  box-shadow: 3px 3px 15px 5px cadetblue;
+  color: #eedada;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
 }

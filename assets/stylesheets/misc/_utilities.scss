@@ -1,9 +1,9 @@
 .v {
-  &-middle{
+  &-middle {
     vertical-align: middle;
   }
 
-  &-bottom{
+  &-bottom {
     vertical-align: bottom;
   }
 
@@ -11,11 +11,11 @@
     vertical-align: top;
   }
 
-  &-text-top{
+  &-text-top {
     vertical-align: text-top;
   }
 
-  &-text-bottom{
+  &-text-bottom {
     vertical-align: text-bottom;
   }
 }
@@ -62,7 +62,7 @@
       @extend .pos;
       top: 50%;
       left: 0px;
-      @include transform(translateY(-50%))
+      @include transform(translateY(-50%));
     }
 
     &-b {
@@ -83,7 +83,7 @@
       @extend .pos;
       top: 50%;
       right: 0px;
-      @include transform(translateY(-50%))
+      @include transform(translateY(-50%));
     }
 
     &-b {
@@ -98,24 +98,23 @@
       @extend .pos;
       top: 0px;
       left: 50%;
-      @include transform(translateX(-50%))
+      @include transform(translateX(-50%));
     }
 
     &-b {
       @extend .pos;
       bottom: 0px;
       left: 50%;
-      @include transform(translateX(-50%))
+      @include transform(translateX(-50%));
     }
 
     &-m {
       @extend .pos;
       top: 50%;
       left: 50%;
-      @include transform(translateX(-50%) translateY(-50%))
+      @include transform(translateX(-50%) translateY(-50%));
     }
   }
-
 }
 
 .u {
@@ -149,7 +148,7 @@
 
     &-decoration {
       &--none {
-        text-decoration:none;
+        text-decoration: none;
       }
     }
 
@@ -169,7 +168,7 @@
     }
 
     &-inlineblock {
-      display:inline-block;
+      display: inline-block;
     }
 
     &-inline {
@@ -191,8 +190,8 @@
     &-13 {
       font-size: $font_13;
     }
-    
-    &-weight{
+
+    &-weight {
       &-bold {
         font-weight: 700;
       }
@@ -283,6 +282,31 @@
   }
 }
 
-@include responsive-util-varied-props('u-padding-3', 'padding', $padding_3, 'left', 'right', 'top', 'bottom');
+@include responsive-util-varied-props(
+  "u-padding-3",
+  "padding",
+  $padding_3,
+  "left",
+  "right",
+  "top",
+  "bottom"
+);
 
-@include responsive-util-varied-props('u-margin-3', 'margin', $margin_3, 'left', 'right', 'top', 'bottom');
+@include responsive-util-varied-props(
+  "u-margin-3",
+  "margin",
+  $margin_3,
+  "left",
+  "right",
+  "top",
+  "bottom"
+);
+@include responsive-util-varied-props(
+  "u-margin-8",
+  "margin",
+  $margin_8,
+  "left",
+  "right",
+  "top",
+  "bottom"
+);
