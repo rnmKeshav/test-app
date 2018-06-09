@@ -1,13 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import UserCard from '../containers/user_card';
+import UserCard from "../containers/user_card";
+import UserHandle from "../components/user_handle";
 
 const Home = () => {
   return (
     <div>
-      <UserCard />
+      <UserHandle />
     </div>
   );
-}
+};
 
 export default Home;
