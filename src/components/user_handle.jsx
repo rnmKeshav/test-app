@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Modal from "./modal";
+
 const handleInputChange = props => ev => {
   let { loggedInUserHandleChange } = props;
   let handle = ev.target.value || "";
@@ -19,11 +21,12 @@ const UserHandle = props => {
         <input
           type="text"
           className="input u-margin-8--all"
-          placeholder="@rnmKeshav"
+          placeholder="rnmKeshav"
           value={handle}
           onChange={handleInputChange(props)}
         />
       </div>
+      <Modal isOpen={true}>Hi this is modal content</Modal>
     </div>
   );
 };

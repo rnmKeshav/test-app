@@ -11,9 +11,9 @@ const routes = [
     action: context => {
       let { dispatch } = context.store;
 
-      return dispatch(getUserData()).then(() => {
-        return <Home />;
-      });
+      //return dispatch(getUserData()).then(() => {
+      return <Home />;
+      //});
     }
   }
 ];
