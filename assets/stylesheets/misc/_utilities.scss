@@ -53,20 +53,20 @@
 
   &-l {
     &-t {
-      @extend .pos;
+      @extend .pos-abs;
       top: 0px;
       left: 0px;
     }
 
     &-m {
-      @extend .pos;
+      @extend .pos-abs;
       top: 50%;
       left: 0px;
       @include transform(translateY(-50%));
     }
 
     &-b {
-      @extend .pos;
+      @extend .pos-abs;
       bottom: 0px;
       left: 0px;
     }
@@ -74,20 +74,20 @@
 
   &-r {
     &-t {
-      @extend .pos;
+      @extend .pos-abs;
       top: 0px;
       right: 0px;
     }
 
     &-m {
-      @extend .pos;
+      @extend .pos-abs;
       top: 50%;
       right: 0px;
       @include transform(translateY(-50%));
     }
 
     &-b {
-      @extend .pos;
+      @extend .pos-abs;
       bottom: 0px;
       right: 0px;
     }
@@ -95,21 +95,21 @@
 
   &-m {
     &-t {
-      @extend .pos;
+      @extend .pos-abs;
       top: 0px;
       left: 50%;
       @include transform(translateX(-50%));
     }
 
     &-b {
-      @extend .pos;
+      @extend .pos-abs;
       bottom: 0px;
       left: 50%;
       @include transform(translateX(-50%));
     }
 
     &-m {
-      @extend .pos;
+      @extend .pos-abs;
       top: 50%;
       left: 50%;
       @include transform(translateX(-50%) translateY(-50%));

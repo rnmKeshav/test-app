@@ -1,0 +1,15 @@
+.button {
+  padding: $padding_8;
+  min-width: 120px;
+  border: 1px solid $button_border_color;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: $font_14;
+  color: $button_border_color;
+  outline: none;
+
+  &:hover {
+    border: 1px solid $button_hover_color;
+    color: $button_hover_color;
+  }
+}

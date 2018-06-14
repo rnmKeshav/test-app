@@ -1,0 +1,21 @@
+.confirmation-modal {
+  width: 500px;
+  padding: $padding_12;
+
+  &--header {
+    font-size: $font_18;
+    font-weight: $font-weight-bold;
+    padding: 0px $padding_12 $padding_12;
+    border-bottom: 1px solid $seperator_color;
+  }
+
+  &--body {
+    padding: $padding_12;
+    font-size: $font_13;
+  }
+
+  &--footer {
+    padding: $padding_12 $padding_12 0px;
+    border-top: 1px solid $seperator_color;
+  }
+}

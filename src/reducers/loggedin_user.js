@@ -2,6 +2,7 @@ import { actionTypes } from "../helpers/constants";
 
 const initialState = {
   isFetching: false,
+  isModalOpen: false,
   error: {
     status: false,
     body: {}
@@ -16,7 +17,7 @@ const updateUserData = (state = initialState, action) => {
       return Object.assign({}, state, { userHandle: action.payload.handle });
 
     case actionTypes["LOGGEDIN_USER/DATA_FETCH_STARTED"]:
-      return Object.assign({}, state, { isFetching: true });
+      return Object.assign({}, state, { isFetching: true, isModalOpen: false });
 
     case actionTypes["LOGGEDIN_USER/DATA_FETCH_FAILURE"]:
       return Object.assign({}, state, {
@@ -28,8 +29,13 @@ const updateUserData = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: false,
         error: initialState.error,
-        details: action.payload.data
+        details: action.payload.data,
+        isModalOpen: true
       });
+
+    case actionTypes["LOGGEDIN_USER/UPDATE_TO_LOCALSTORE"]:
+      window.localStorage.loggedinUser = JSON.stringify(state.details);
+      return Object.assign({}, state, { isModalOpen: false });
 
     default:
       return state;

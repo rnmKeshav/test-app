@@ -10,6 +10,10 @@ const getUserData = payload => (dispatch, getState) => {
       endpoint: `users/${handle}`
     };
 
+    dispatch({
+      type: actionTypes["LOGGEDIN_USER/DATA_FETCH_STARTED"]
+    });
+
     api.get(requestParams).then(
       data => {
         dispatch({
@@ -31,4 +35,4 @@ const getUserData = payload => (dispatch, getState) => {
   });
 };
 
-export default debounce(getUserData, 500);
+export default debounce(getUserData, 3000);

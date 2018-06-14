@@ -17,19 +17,9 @@ class Modal extends React.Component {
     return true;
   }
 
-  // static getDerivedStateFromProps(state, props) {
-  //   if (state.isOpen !== props.isOpen) {
-  //     return { isOpen: true };
-  //   }
-
-  //   return null;
-  // }
-
-  // componentDidUpdate() {
-  //   if (this.state.isOpen !== this.props.isOpen) {
-  //     this.setState({ isOpen: true });
-  //   }
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return { isOpen: nextProps.isOpen };
+  }
 
   toggleModal() {
     this.setState({

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Modal from "./modal";
+import ConfirmationModal from "./confirmation_modal";
 
 const handleInputChange = props => ev => {
   let { loggedInUserHandleChange } = props;
@@ -11,7 +11,7 @@ const handleInputChange = props => ev => {
 };
 
 const UserHandle = props => {
-  let { handle } = props;
+  let { handle, handleConfirmClick, isModalOpen } = props;
 
   return (
     <div className="">
@@ -26,13 +26,20 @@ const UserHandle = props => {
           onChange={handleInputChange(props)}
         />
       </div>
-      <Modal isOpen={true}>Hi this is modal content</Modal>
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        header="Hi this is header"
+        body="Hi this is body"
+        onConfirmClick={handleConfirmClick}
+      />
     </div>
   );
 };
 
 UserHandle.propTypes = {
   handle: PropTypes.string,
-  loggedInUserHandleChange: PropTypes.func
+  isModalOpen: PropTypes.bool,
+  loggedInUserHandleChange: PropTypes.func,
+  handleConfirmClick: PropTypes.func
 };
 export default UserHandle;

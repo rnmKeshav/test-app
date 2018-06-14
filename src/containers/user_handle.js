@@ -1,14 +1,16 @@
 import { connect } from "react-redux";
+
 import { actionTypes } from "../helpers/constants";
 import getUserData from "../actions/get_user_data";
 
 import UserHandle from "../components/user_handle";
 
 const mapStateToProps = state => {
-  let { handle } = state.loggedinUser;
+  let { handle, isModalOpen } = state.loggedinUser;
 
   return {
-    handle
+    handle,
+    isModalOpen
   };
 };
 
@@ -21,6 +23,12 @@ const mapDispatchToProps = dispatch => {
         payload: {
           handle
         }
+      });
+    },
+
+    handleConfirmClick: () => {
+      dispatch({
+        type: actionTypes["LOGGEDIN_USER/UPDATE_TO_LOCALSTORE"]
       });
     }
   };
