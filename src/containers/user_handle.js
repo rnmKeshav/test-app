@@ -18,20 +18,38 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+  let timeout;
   return {
     loggedInUserHandleChange: handle => {
-      dispatch(getUserData({ handle }));
+      clearTimeout(timeout);
       dispatch({
         type: actionTypes["LOGGEDIN_USER/CHANGE_HANDLE"],
         payload: {
           handle
         }
       });
+
+      timeout = setTimeout(function() {
+        dispatch(getUserData({ handle }));
+      }, 2000);
+    },
+
+    getLogginUserHandle: handle => {
+      if (!timeout) {
+        dispatch(getUserData({ handle }));
+      }
+      clearTimeout(timeout);
     },
 
     handleConfirmClick: () => {
       dispatch({
         type: actionTypes["LOGGEDIN_USER/UPDATE_TO_LOCALSTORE"]
+      });
+    },
+
+    handleCancelClick: () => {
+      dispatch({
+        type: actionTypes["LOGGEDIN_USER/CLOSE_CONFIRMATION_MODAL"]
       });
     }
   };

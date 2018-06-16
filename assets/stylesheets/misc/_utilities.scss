@@ -310,3 +310,13 @@
   "top",
   "bottom"
 );
+
+@include responsive-util-varied-props(
+  "u-margin-16",
+  "margin",
+  $margin_16,
+  "left",
+  "right",
+  "top",
+  "bottom"
+);

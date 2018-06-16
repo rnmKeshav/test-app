@@ -1,10 +1,10 @@
 .user-card {
-  width: 600px;
   margin: auto;
   background: white;
   border: 1px solid $seperator_color;
   border-radius: 3px;
   padding: $padding_12;
+  margin: $margin_8;
 
   &-avatar {
     height: 40px;

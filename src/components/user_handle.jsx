@@ -10,8 +10,15 @@ const handleInputChange = props => ev => {
   loggedInUserHandleChange(handle);
 };
 
+const handleInputBlur = props => ev => {
+  let { getLogginUserHandle } = props;
+  let handle = ev.target.value || "";
+
+  getLogginUserHandle(handle);
+};
+
 const UserHandle = props => {
-  let { handle, handleConfirmClick, isModalOpen, header, body } = props;
+  let { handle, handleConfirmClick, isModalOpen, header, body, handleCancelClick } = props;
 
   return (
     <div className="">
@@ -24,6 +31,7 @@ const UserHandle = props => {
           placeholder="rnmKeshav"
           value={handle}
           onChange={handleInputChange(props)}
+          onBlur={handleInputBlur(props)}
         />
       </div>
       <ConfirmationModal
@@ -31,6 +39,7 @@ const UserHandle = props => {
         header={header}
         body={body}
         onConfirmClick={handleConfirmClick}
+        onCancelClick={handleCancelClick}
       />
     </div>
   );
@@ -42,6 +51,8 @@ UserHandle.propTypes = {
   header: PropTypes.string,
   body: PropTypes.string,
   loggedInUserHandleChange: PropTypes.func,
+  getLogginUserHandle: PropTypes.func,
+  handleCancelClick: PropTypes.func,
   handleConfirmClick: PropTypes.func
 };
 export default UserHandle;

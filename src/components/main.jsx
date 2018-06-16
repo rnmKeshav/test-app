@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import UserCard from "../containers/user_card";
 import UserHandle from "../containers/user_handle";
 
 import Home from "./home";

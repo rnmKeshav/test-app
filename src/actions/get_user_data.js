@@ -1,8 +1,6 @@
 import api from "../helpers/apiUtil";
 import { actionTypes } from "../helpers/constants";
 
-import { debounce } from "../helpers/helper";
-
 const getUserData = payload => (dispatch, getState) => {
   return new Promise((resolve, reject) => {
     let { handle } = payload;
@@ -35,4 +33,4 @@ const getUserData = payload => (dispatch, getState) => {
   });
 };
 
-export default debounce(getUserData, 3000);
+export default getUserData;
