@@ -1,0 +1,11 @@
+.home {
+  &-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $home_background;
+    z-index: -1;
+  }
+}

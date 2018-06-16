@@ -8,6 +8,12 @@
 @import "./objects/_modal";
 @import "./objects/_button";
 
+//Vandors
+@import "./vendor/grids-responsive-min";
+
 // Components
+@import "./components/_common";
 @import "./components/user_handle";
 @import "./components/_confirmation_modal";
+@import "./components/_home";
+@import "./components/_user_card";

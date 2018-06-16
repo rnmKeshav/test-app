@@ -11,7 +11,7 @@ const handleInputChange = props => ev => {
 };
 
 const UserHandle = props => {
-  let { handle, handleConfirmClick, isModalOpen } = props;
+  let { handle, handleConfirmClick, isModalOpen, header, body } = props;
 
   return (
     <div className="">
@@ -28,8 +28,8 @@ const UserHandle = props => {
       </div>
       <ConfirmationModal
         isOpen={isModalOpen}
-        header="Hi this is header"
-        body="Hi this is body"
+        header={header}
+        body={body}
         onConfirmClick={handleConfirmClick}
       />
     </div>
@@ -39,6 +39,8 @@ const UserHandle = props => {
 UserHandle.propTypes = {
   handle: PropTypes.string,
   isModalOpen: PropTypes.bool,
+  header: PropTypes.string,
+  body: PropTypes.string,
   loggedInUserHandleChange: PropTypes.func,
   handleConfirmClick: PropTypes.func
 };

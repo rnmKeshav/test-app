@@ -1,0 +1,31 @@
+.user-card {
+  width: 600px;
+  margin: auto;
+  background: white;
+  border: 1px solid $seperator_color;
+  border-radius: 3px;
+  padding: $padding_12;
+
+  &-avatar {
+    height: 40px;
+    width: 40px;
+    border: 1px solid $seperator_color;
+    border-radius: 50%;
+  }
+
+  &-name {
+    font-size: $font_18;
+    margin: $margin_8;
+  }
+
+  &-bio {
+    font-size: $font_12;
+    margin: $margin_8;
+    color: rgba(69, 90, 100, 0.7);
+  }
+
+  &-body {
+    border-top: 1px solid $seperator_color;
+    padding: $padding_12;
+  }
+}

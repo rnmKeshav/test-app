@@ -1,12 +1,13 @@
 import React from "react";
-
 import UserCard from "../containers/user_card";
-import UserHandle from "../containers/user_handle";
 
-const Home = () => {
+const Home = props => {
   return (
-    <div>
-      <UserHandle />
+    <div className="home">
+      <div className="home-background" />
+      <div>
+        <UserCard />
+      </div>
     </div>
   );
 };

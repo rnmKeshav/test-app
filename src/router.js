@@ -3,7 +3,7 @@ import UniversalRouter from "universal-router";
 
 import getUserData from "./actions/get_user_data";
 
-import Home from "./components/home";
+import Main from "./containers/main";
 
 const routes = [
   {
@@ -12,7 +12,7 @@ const routes = [
       let { dispatch } = context.store;
 
       //return dispatch(getUserData()).then(() => {
-      return <Home />;
+      return <Main />;
       //});
     }
   }

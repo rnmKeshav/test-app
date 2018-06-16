@@ -6,10 +6,13 @@ import getUserData from "../actions/get_user_data";
 import UserHandle from "../components/user_handle";
 
 const mapStateToProps = state => {
-  let { handle, isModalOpen } = state.loggedinUser;
+  let { handle, isModalOpen, details } = state.loggedinUser;
+  let { login, name } = details;
 
   return {
     handle,
+    header: `Hello ${name}`,
+    body: `Please confirm if ${login} is your github handle`,
     isModalOpen
   };
 };

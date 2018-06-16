@@ -37,6 +37,11 @@ const updateUserData = (state = initialState, action) => {
       window.localStorage.loggedinUser = JSON.stringify(state.details);
       return Object.assign({}, state, { isModalOpen: false });
 
+    case actionTypes["LOGGEDIN_USER/UPDATE_DETAIL_FROM_LOCALSTORAGE"]:
+      let details = window.localStorage.getItem("loggedinUser");
+
+      return Object.assign({}, state, { details: JSON.parse(details) });
+
     default:
       return state;
   }
