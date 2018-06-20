@@ -10,7 +10,7 @@ const updateSelectedUsers = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes["SELECTED_USER/ADD_NEW"]:
       selectedUser = state.users.find(thisuser => {
-        return thisuser.login === action.payload.user.login;
+        return thisuser.login === action.payload.user && action.payload.user.login;
       });
 
       if (selectedUser) {
