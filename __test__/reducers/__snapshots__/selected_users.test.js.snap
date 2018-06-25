@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selected_users reducer test Should add new user if not already exist 1`] = `
+Object {
+  "users": Array [
+    Object {
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22627?v=4",
+      "events_url": "https://api.github.com/users/rnmp/events{/privacy}",
+      "followers_url": "https://api.github.com/users/rnmp/followers",
+      "following_url": "https://api.github.com/users/rnmp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rnmp/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/rnmp",
+      "id": 22627,
+      "login": "rnmp",
+      "node_id": "MDQ6VXNlcjIyNjI3",
+      "organizations_url": "https://api.github.com/users/rnmp/orgs",
+      "received_events_url": "https://api.github.com/users/rnmp/received_events",
+      "repos_url": "https://api.github.com/users/rnmp/repos",
+      "score": 32.814484,
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/rnmp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rnmp/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/rnmp",
+    },
+  ],
+}
+`;
+
+exports[`Selected_users reducer test Should match initial state 1`] = `
+Object {
+  "users": Array [],
+}
+`;
+
+exports[`Selected_users reducer test Should update user if already exist 1`] = `
+Object {
+  "users": Array [
+    Object {
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22627?v=4",
+      "events_url": "https://api.github.com/users/rnmp/events{/privacy}",
+      "followers_url": "https://api.github.com/users/rnmp/followers",
+      "following_url": "https://api.github.com/users/rnmp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rnmp/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/rnmp",
+      "id": 22627,
+      "login": "rnmp",
+      "node_id": "MDQ6VXNlcjIyNjI3",
+      "organizations_url": "https://api.github.com/users/rnmp/orgs",
+      "received_events_url": "https://api.github.com/users/rnmp/received_events",
+      "repos_url": "https://api.github.com/users/rnmp/repos",
+      "score": 34,
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/rnmp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rnmp/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/rnmp",
+    },
+  ],
+}
+`;
