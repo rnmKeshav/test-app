@@ -32,7 +32,6 @@ describe("get_searched_users action test", () => {
     mockedSuperagent(null, error);
 
     return store.dispatch(getSearchedUsers({ searchText: "rnm" })).catch(() => {
-      console.log("store.getActions()", store.getActions());
       expect(store.getActions()).toMatchSnapshot();
     });
   });
