@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get_user_data action test should handle error 1`] = `
+Array [
+  Object {
+    "type": "LOGGEDIN_USER/DATA_FETCH_STARTED",
+  },
+  Object {
+    "payload": Object {
+      "message": "something went wrong",
+    },
+    "type": "LOGGEDIN_USER/DATA_FETCH_FAILURE",
+  },
+]
+`;

@@ -5,11 +5,12 @@ import { debounce } from "../helpers/helper";
 
 const getSearchedUsers = payload => (dispatch, getState) => {
   let apiUrl = "https://api.github.com/search/users";
+  console.log("no");
   let { searchText } = payload;
   if (!searchText) {
     return;
   }
-
+  console.log("in");
   let query = searchText;
 
   dispatch({
@@ -21,6 +22,7 @@ const getSearchedUsers = payload => (dispatch, getState) => {
     .query({ q: query })
     .then(
       response => {
+        console.log("response", response);
         dispatch({
           type: actionTypes["SEARCHED_USERS/DATA_FETCH_SUCCESS"],
           payload: {

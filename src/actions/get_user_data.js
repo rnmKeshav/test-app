@@ -11,7 +11,7 @@ const getUserData = payload => (dispatch, getState) => {
     dispatch({
       type: actionTypes["LOGGEDIN_USER/DATA_FETCH_STARTED"]
     });
-
+    //console.log("apiutil", api.get);
     api.get(requestParams).then(
       data => {
         dispatch({
@@ -26,7 +26,7 @@ const getUserData = payload => (dispatch, getState) => {
           type: actionTypes["LOGGEDIN_USER/DATA_FETCH_FAILURE"],
           payload: { message: err.message }
         });
-
+        console.log("error", err);
         reject(err);
       }
     );
