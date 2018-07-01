@@ -658,3 +658,5 @@ Array [
   },
 ]
 `;
+
+exports[`get_searched_users action test it should return empty without searchtext 1`] = `Array []`;

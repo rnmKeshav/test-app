@@ -7,9 +7,9 @@ const getSearchedUsers = payload => (dispatch, getState) => {
   let apiUrl = "https://api.github.com/search/users";
 
   let { searchText } = payload;
-  // if (!searchText) {
-  //   return Promise.resolve();
-  // }
+  if (!searchText) {
+    return Promise.resolve();
+  }
 
   let query = searchText;
 
