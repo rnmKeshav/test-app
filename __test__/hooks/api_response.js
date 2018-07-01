@@ -669,7 +669,12 @@ const getSearchedUsers = () => ({
   ]
 });
 
+let errorResponse = () => ({
+  message: "Something went wrong"
+});
+
 module.exports = {
   getUserData,
-  getSearchedUsers
+  getSearchedUsers,
+  errorResponse
 };

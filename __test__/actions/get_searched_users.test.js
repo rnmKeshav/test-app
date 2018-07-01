@@ -1,16 +1,28 @@
-import getSearchedUsers from "../../src/actions/get_searched_users";
+import mockedSuperagent from "../__mocks__/superagent";
 
 import mockStore from "../hooks/store_mocker";
-import superagent from "../__mocks__/superagent";
+import getSearchedUsers from "../../src/actions/get_searched_users";
 
-import { getSearchedUsers as searchedUsersResp } from "../hooks/api_response";
+import { getSearchedUsers as searchedUsersResp, errorResponse } from "../hooks/api_response";
 
 describe("get_searched_users action test", () => {
-  let store = mockStore({});
-
   test("it should get searched user", () => {
-    let resp = { a: 1 };
+    let store = mockStore({});
+    let resp = searchedUsersResp();
+    mockedSuperagent({ body: resp });
 
-    return store.dispatch(getSearchedUsers());
+    return store.dispatch(getSearchedUsers({})).then(resp => {
+      expect(store.getActions()).toMatchSnapshot();
+    });
+  });
+
+  test("It should handle failure case", () => {
+    let store = mockStore({});
+    let error = errorResponse();
+    mockedSuperagent(null, error);
+
+    return store.dispatch(getSearchedUsers({})).catch(() => {
+      expect(store.getActions()).toMatchSnapshot();
+    });
   });
 });
