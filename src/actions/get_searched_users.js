@@ -40,4 +40,4 @@ const getSearchedUsers = payload => (dispatch, getState) => {
     );
 };
 
-export default getSearchedUsers;
+export default debounce(getSearchedUsers, 300);

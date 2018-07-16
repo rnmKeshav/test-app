@@ -19,9 +19,11 @@ jest.mock("superagent", () => {
           This is a precaution to guard against uninitialized mock variables. 
           If it is ensured that the mock is required lazily, variable names prefixed with `mock` are permitted.
       */
+
       if (mockerror) {
         errFn(mockerror);
-        return Promise.reject();
+        //return Promise.reject();
+        return;
       }
 
       respFn(mockresp);
