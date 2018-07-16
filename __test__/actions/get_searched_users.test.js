@@ -14,9 +14,6 @@ const undebouncedFunction = (store, payload = {}) => {
 };
 
 const undebouncedFunction1 = (store, payload = {}) => {
-  //let store = mockStore({});
-  //let resp = searchedUsersResp();
-  //mockedSuperagent({ body: resp });
   return new Promise((resolve, reject) => {
     store.dispatch(getSearchedUsers(payload));
 

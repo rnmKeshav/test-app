@@ -20,24 +20,24 @@ const getSearchedUsers = payload => (dispatch, getState) => {
   return request
     .get(apiUrl)
     .query({ q: query })
-    .then(
-      response => {
-        dispatch({
-          type: actionTypes["SEARCHED_USERS/DATA_FETCH_SUCCESS"],
-          payload: {
-            data: response.body.items
-          }
-        });
-      },
-      err => {
+    .then((err, response) => {
+      if (err) {
         dispatch({
           type: actionTypes["SEARCHED_USERS/DATA_FETCH_FAILURE"],
           payload: {
             message: err.message
           }
         });
+
+        return;
       }
-    );
+      dispatch({
+        type: actionTypes["SEARCHED_USERS/DATA_FETCH_SUCCESS"],
+        payload: {
+          data: response.body.items
+        }
+      });
+    });
 };
 
 export default debounce(getSearchedUsers, 300);

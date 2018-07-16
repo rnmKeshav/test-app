@@ -13,7 +13,7 @@ jest.mock("superagent", () => {
     query: jest.fn(function() {
       return this;
     }),
-    then: jest.fn(function(respFn, errFn) {
+    then: jest.fn(function(respFn) {
       /*
         NOTE: The module factory of `jest.mock()` is not allowed to reference any out-of-scope variables.
           This is a precaution to guard against uninitialized mock variables. 
@@ -21,13 +21,10 @@ jest.mock("superagent", () => {
       */
 
       if (mockerror) {
-        errFn(mockerror);
-        //return Promise.reject();
-        return;
+        respFn(mockerror, null);
+      } else {
+        respFn(null, mockresp);
       }
-
-      respFn(mockresp);
-      return Promise.resolve();
     })
   };
 });
